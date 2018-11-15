@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
@@ -85,7 +87,7 @@ app.patch('/todos/:id', (req, res) => {
         if(!todo) {
             return res.status(404).send();
         }
-        
+
         res.send({todo});
     }).catch(e => {
         res.status(400).send();
