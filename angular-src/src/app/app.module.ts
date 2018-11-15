@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { CompleteTodosComponent } from './todos/complete-todos/complete-todos.component';
 import { IncompleteTodosComponent } from './todos/incomplete-todos/incomplete-todos.component';
 import { SingleTodoComponent } from './todos/single-todo/single-todo.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,11 @@ import { SingleTodoComponent } from './todos/single-todo/single-todo.component';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
