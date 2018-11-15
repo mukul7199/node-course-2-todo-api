@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav>
+    hi
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div>
+
+      <app-header (SideNavigationToggle)="sidenav.toggle()"></app-header>
+      <app-navtabs></app-navtabs>
+    </div>
+
+    <div>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <!-- <router-outlet></router-outlet> -->
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

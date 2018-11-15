@@ -1,0 +1,16 @@
+<div 
+    class="mat-spinner-container"
+    *ngIf="showSpinner"
+>
+    <mat-spinner
+    
+    ></mat-spinner>
+</div>
+
+
+<app-single-todo
+    *ngFor="let todo of todos"
+    [todo]="todo"
+>
+</app-single-todo>
+
