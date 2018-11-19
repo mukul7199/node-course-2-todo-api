@@ -1,10 +1,27 @@
 <mat-card>
-    <!-- <mat-card-title>{{todo.text}}</mat-card-title> -->
-    <!-- <mat-card-subtitle>Card Subtitle</mat-card-subtitle> -->
-    <mat-card-content>
-      {{todo.text}}
-    </mat-card-content>
-    <mat-card-footer>
+  <!-- <mat-card-title>{{todo.text}}</mat-card-title> -->
+  <!-- <mat-card-subtitle>Card Subtitle</mat-card-subtitle> -->
+  <mat-card-content>
+    {{todo.text}}
+  </mat-card-content>
+  <mat-card-footer>
+    <p>
       {{ formatDate(this.todo.date) }}
-    </mat-card-footer>
+    </p>
+    <div class="action-buttons">
+      <button
+        mat-icon-button
+        (click)="onTodoEdit()"
+      >
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="onTodoDelete()"
+      >
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+    </div>
+
+  </mat-card-footer>
 </mat-card>

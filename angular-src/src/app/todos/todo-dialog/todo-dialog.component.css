@@ -1,0 +1,8 @@
+.centerContent {
+    margin: auto;
+    display: table;
+}
+
+.leftButton {
+    left: 0;
+}
