@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
@@ -15,8 +16,14 @@ import { SingleTodoComponent } from './todos/single-todo/single-todo.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TodoService } from './services/todo.service';
+import { NewTodoComponent } from './todos/new-todo/new-todo.component';
+import { TodoDialogComponent } from './todos/todo-dialog/todo-dialog.component';
 
 @NgModule({
+  entryComponents: [
+    NewTodoComponent,
+    TodoDialogComponent
+  ],
   declarations: [
     AppComponent,
     SidenavComponent,
@@ -25,14 +32,17 @@ import { TodoService } from './services/todo.service';
     AllTodosComponent,
     CompleteTodosComponent,
     IncompleteTodosComponent,
-    SingleTodoComponent
+    SingleTodoComponent,
+    NewTodoComponent,
+    TodoDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     TodoService

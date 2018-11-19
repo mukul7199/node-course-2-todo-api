@@ -1,3 +1,12 @@
 mat-card {
     margin: 5%;
 }
+
+mat-card-footer {
+    display: flex;
+}
+
+.action-buttons {
+    margin-left: auto;
+    margin-right: 0;
+}
