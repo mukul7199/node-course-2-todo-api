@@ -1,20 +1,66 @@
-import { NgModule } from '@angular/core';
-import * as MATERIAL_MODULES from '@angular/material';
+import {NgModule} from '@angular/core';
 
-export function mapMaterialModules() {
-  return Object.keys(MATERIAL_MODULES).filter((k) => {
-    // tslint:disable-next-line:prefer-const
-    let asset = MATERIAL_MODULES[k];
-    // tslint:disable-next-line:triple-equals
-    return typeof asset == 'function'
-      && asset.name.startsWith('Mat')
-      && asset.name.includes('Module');
-  }).map((k) => MATERIAL_MODULES[k]);
-}
-const modules = mapMaterialModules();
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {A11yModule} from '@angular/cdk/a11y';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {
+  MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
+  MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+  MatDialogModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,
+  MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
+  MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
+} from '@angular/material';
+
+const modules = [
+  A11yModule,
+  CdkTableModule,
+  CdkTreeModule,
+  DragDropModule,
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatSliderModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+  ScrollingModule,
+];
 
 @NgModule({
-    imports: modules,
-    exports: modules
+  imports: modules,
+  exports: modules
 })
+
 export class MaterialModule { }

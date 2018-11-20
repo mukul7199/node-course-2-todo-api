@@ -1,5 +1,7 @@
 require('./config/config');
 
+const path = require('path');
+const CWD = process.cwd();
 const express = require('express');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
@@ -12,7 +14,11 @@ var {User} = require('./models/user');
 var cors = require('cors');
 
 var app = express();
+
 app.use(cors());
+
+// Set Static Folder
+app.use(express.static(path.join(CWD, 'public')));
 
 const port = process.env.PORT || 3000;
 
@@ -116,6 +122,11 @@ app.post('/users', (req, res) => {
             res.status(400).send(e);
         });
 
+});
+
+// All Other Routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(CWD, 'public/index.html'));
 });
 
 app.listen(port, () => {
