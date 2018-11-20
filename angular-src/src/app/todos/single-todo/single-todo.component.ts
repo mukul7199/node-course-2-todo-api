@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material';
 export class SingleTodoComponent implements OnInit {
 
   @Input() todo: any;
+  completedIcon: String;
 
   constructor(
     public dialog: MatDialog,
@@ -21,6 +22,7 @@ export class SingleTodoComponent implements OnInit {
   ngOnInit() {
     this.todo.timestamp = this.todo._id.toString().substring(0, 8);
     this.todo.date = new Date(parseInt(this.todo.timestamp, 16) * 1000);
+    this.completedIcon = this.todo.completed ? 'cancel' : 'done';
     // console.log(this.todo);
   }
 
@@ -59,6 +61,11 @@ export class SingleTodoComponent implements OnInit {
 
   onTodoDelete() {
     this.todoService.deleteTodo(this.todo);
+  }
+
+  onTodoComplete() {
+    this.todo.completed = !this.todo.completed;
+    this.updateTodo(this.todo);
   }
 
   updateTodo(editedTodo) {
