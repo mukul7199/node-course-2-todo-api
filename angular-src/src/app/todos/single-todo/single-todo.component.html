@@ -4,11 +4,19 @@
   <mat-card-content>
     {{todo.text}}
   </mat-card-content>
+  <p>Completed: {{this.todo.completed}}</p>
   <mat-card-footer>
     <p>
       {{ formatDate(this.todo.date) }}
     </p>
     <div class="action-buttons">
+      <button
+        mat-icon-button
+        (click)="onTodoComplete()"
+      >
+        <mat-icon aria-label="Completed">{{completedIcon}}</mat-icon>
+      </button>
+
       <button
         mat-icon-button
         (click)="onTodoEdit()"

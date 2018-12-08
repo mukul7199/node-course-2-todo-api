@@ -1,5 +1,7 @@
 require('./config/config');
 
+const path = require('path');
+const CWD = process.cwd();
 const express = require('express');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
@@ -13,7 +15,11 @@ var {authenticate} = require('./middleware/authenticate');
 var cors = require('cors');
 
 var app = express();
+
 app.use(cors());
+
+// Set Static Folder
+app.use(express.static(path.join(CWD, 'public')));
 
 const port = process.env.PORT || 3000;
 
@@ -122,6 +128,10 @@ app.post('/users', (req, res) => {
 app.get('/users/me', authenticate, (req, res) => {
     res.send(req.user);
 })
+// All Other Routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(CWD, 'public/index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Started on port ${port}`);
